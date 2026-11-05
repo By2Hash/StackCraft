@@ -1,111 +1,74 @@
-🚀 StackCraft
+# 🚀 StackCraft
 
-An interactive TUI CLI to bootstrap, install dependencies, and setup project environments in seconds.
+An interactive TUI to bootstrap project environments in seconds.
 
-🌐 Read this documentation in Español.
+🌐 Read this documentation in [Español](README.es.md)
 
-📖 Overview
+## Overview
 
-StackCraft is an interactive Terminal User Interface (TUI) built with Go that automates development environment setup with a single command.
+StackCraft is a terminal app built with Go. When you run it, it updates your system package manager, checks that `git` and `nvim` are installed, and shows a menu to pick your tech stack. After you choose, it creates the project structure, installs dependencies, initializes Git and opens your editor.
 
-When executed, it updates your system package manager, verifies core developer tools (git, nvim), and presents an interactive menu to choose your preferred tech stack (MERN, MARN, Python Backend, Go REST API, and more).
+## Features
 
-Once a stack is selected, StackCraft handles directory structure creation, virtual environment setup, dependency installation, Git initialization, and launches your text editor so you can start coding right away.
+- Interactive menu with keyboard navigation (Bubbletea + Lipgloss)
+- Automatic package updates (`brew update` / `apt update`)
+- Checks for `git` and `nvim` and installs them if missing
+- Ready-made stacks:
+  - **MERN**: Node.js, Express, React, MongoDB tools
+  - **MARN**: Node.js, Express, Angular, MongoDB tools
+  - **Python Backend**: venv, FastAPI, Uvicorn, SQLAlchemy
+  - **Go REST API**: Go module, Chi Router, PGX driver
+- Initializes a Git repository and opens `nvim` when done
 
-✨ Features
+## Requirements
 
-⚡ Interactive TUI: Smooth keyboard navigation powered by Bubbletea and styled with Lipgloss.
+- Go 1.20 or higher (to build from source)
+- Linux, macOS or Windows via WSL
+- Homebrew (`brew`) or APT (`apt`)
+- `sudo` access
 
-🔄 Auto Package Management: Runs system package updates (brew update / apt update) before displaying options.
+## Installation
 
-🛡️ Environment Check & Idempotency: Automatically checks for core dev tools (like git and nvim) and installs missing dependencies via Homebrew or APT.
-
-📦 Pre-configured Stacks:
-
-MERN Stack: Node.js, Express, React, MongoDB tools.
-
-MARN Stack: Node.js, Express, Angular, MongoDB tools.
-
-Python Backend: Virtual environment (venv) setup with FastAPI, Uvicorn, and SQLAlchemy.
-
-Go REST API: Module initialization with Chi Router and PGX driver.
-
-🐙 Git & Editor Ready: Initializes a local Git repository and immediately launches nvim upon setup completion.
-
-🛠️ Tech Stack & Requirements
-
-Language: Go (Golang 1.20+)
-
-TUI Engine: Bubbletea & Lipgloss (Charm.sh ecosystem)
-
-Supported Platforms: Linux, macOS, and Windows Subsystem for Linux (WSL)
-
-Package Managers: Homebrew (brew) or APT (apt)
-
-🚀 Quick Start
-
-1. Prerequisites
-
-Ensure you have Go installed on your system. If you are using Linux/WSL with Homebrew:
-
-brew install go
-
-
-2. Installation
-
-Clone the repository and build the binary:
-
-# Clone the repository
+```bash
 git clone https://github.com/your-username/stackcraft.git
 cd stackcraft
-
-# Build the application
 go build -o stackcraft .
-
-# Move binary to PATH for global usage
 sudo mv stackcraft /usr/local/bin/
+```
 
+## Usage
 
-💻 Usage
+Go to an empty directory and run:
 
-Navigate to any empty directory where you want to start a new project, then run:
-
+```bash
 stackcraft
+```
 
+| Key | Action |
+|-----|--------|
+| `↑` / `k` | Move up |
+| `↓` / `j` | Move down |
+| `Enter` | Select stack and start setup |
+| `q` / `Ctrl+C` | Quit |
 
-Keyboard Shortcuts
+## Project Structure
 
-↑ / k: Move cursor up
-
-↓ / j: Move cursor down
-
-Enter: Select stack and execute automated setup
-
-q or Ctrl+C: Quit application
-
-📁 Project Architecture
-
+```
 stackcraft/
-├── syscheck.go   # Package updater & tool dependency verification
-├── main.go       # Bubbletea TUI model, update cycle, views & stack installers
-├── go.mod        # Go module definition
-└── README.md     # Project documentation
+├── main.go       # TUI model, views and stack installers
+├── syscheck.go   # Package updates and tool checks
+├── go.mod        # Go module
+└── README.md
+```
 
+## Contributing
 
-🤝 Contributing
+1. Fork the project
+2. Create a branch (`git checkout -b feature/AddAwesomeStack`)
+3. Commit your changes (`git commit -m 'Add Awesome Stack template'`)
+4. Push the branch (`git push origin feature/AddAwesomeStack`)
+5. Open a Pull Request
 
-Contributions are welcome! If you want to add a new stack definition (e.g., Spring Boot, Rust, Laravel):
+## License
 
-Fork the Project
-
-Create your Feature Branch (git checkout -b feature/AddAwesomeStack)
-
-Commit your Changes (git commit -m 'Add Awesome Stack template')
-
-Push to the Branch (git push origin feature/AddAwesomeStack)
-
-Open a Pull Request
-
-📜 License
-
-Distributed under the MIT License. See LICENSE for more information.
+MIT License. See `LICENSE` for details.
