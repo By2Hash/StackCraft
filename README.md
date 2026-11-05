@@ -2,8 +2,6 @@
 
 An interactive TUI to bootstrap project environments in seconds.
 
-🌐 Read this documentation in [Español](README.es.md)
-
 ## Overview
 
 StackCraft is a terminal app built with Go. When you run it, it updates your system package manager, checks that `git` and `nvim` are installed, and shows a menu to pick your tech stack. After you choose, it creates the project structure, installs dependencies, initializes Git and opens your editor.
